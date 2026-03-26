@@ -4,6 +4,7 @@ import "./globals.css";
 import { Toaster } from "sonner";
 import Footer from "@/components/footer";
 import Navbar from "@/components/navbar";
+import {ClerkProvider} from "@clerk/nextjs"
 
 const inter = Inter({subsets:['latin'],variable:'--font-sans'});
 
@@ -18,18 +19,20 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en" suppressHydrationWarning>
-      <body className={`${inter.className} min-h-screen flex flex-col`}>
-        {/* Navbar */}
-        <Navbar/>
-        {/* Main section*/}
-        <main className="flex-1 container mx-auto px-4 py-8">
-          {children}
-        </main>
-        <Footer/>
-        <Toaster/>
-      </body>
-    </html>
+    <ClerkProvider>
+      <html lang="en" suppressHydrationWarning>
+        <body className={`${inter.className} min-h-screen flex flex-col`}>
+          {/* Navbar */}
+          <Navbar/>
+          {/* Main section*/}
+          <main className="flex-1 container mx-auto px-4 py-8">
+            {children}
+          </main>
+          <Footer/>
+          <Toaster/>
+        </body>
+      </html>
+    </ClerkProvider>
+    
   );
 }
