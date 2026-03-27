@@ -3,7 +3,7 @@
 import { Map, MessageSquare, Sparkle } from "lucide-react"
 import Link from "next/link"
 import ThemeToggle from "./theme-toggle"
-import { SignInButton, SignOutButton, useAuth} from "@clerk/nextjs"
+import { SignInButton, SignOutButton, useAuth, UserButton} from "@clerk/nextjs"
 import { Button } from "./ui/button"
 
 
@@ -35,7 +35,7 @@ export default function Navbar(){
                     </Link>
                     <div className="flex item-center gap-4">
                         <ThemeToggle/>
-                        {!isSignedIn ? <SignInButton mode="modal"><Button>Sign in</Button></SignInButton> : <SignOutButton><Button>Log out</Button></SignOutButton>}
+                        {!isSignedIn ? <SignInButton mode="modal"><Button>Sign in</Button></SignInButton> : <UserButton></UserButton>}
                     </div>
                 </div>
             </div>
