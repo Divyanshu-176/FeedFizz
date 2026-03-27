@@ -9,7 +9,7 @@ import {ClerkProvider} from "@clerk/nextjs"
 const inter = Inter({subsets:['latin'],variable:'--font-sans'});
 
 export const metadata: Metadata = {
-  title: "Feedback Fusion - Public Roadmap",
+  title: "Feed Fizz",
   description: "A platform for users to suggest and vote on features",
 };
 
@@ -22,9 +22,7 @@ export default function RootLayout({
     <ClerkProvider>
       <html lang="en" suppressHydrationWarning>
         <body className={`${inter.className} min-h-screen flex flex-col`}>
-          {/* Navbar */}
           <Navbar/>
-          {/* Main section*/}
           <main className="flex-1 container mx-auto px-4 py-8">
             {children}
           </main>
