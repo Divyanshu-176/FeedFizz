@@ -51,7 +51,7 @@ export default function FeedbackList({initialPosts, userId}:{initialPosts:any[],
                         const voteCount = post.votes.length
                         return {
                             ...post,
-                            votes:data.voted ? [...post.vote, {userId}] : post.votes.filter((v:any)=> v.userId !== userId),
+                            votes:data.voted ? [...post.votes, {userId}] : post.votes.filter((v:any)=> v.userId !== userId),
                             _count:{
                                 votes:data.voted ? voteCount+1:voteCount-1
                             }
@@ -70,7 +70,7 @@ export default function FeedbackList({initialPosts, userId}:{initialPosts:any[],
     
     return(
         <>
-            <div className="">
+            <div className="space-y-4">
                 {posts.map((post)=>(
                     <Card key={post.id} className="hover:shadow-md transition-shadow border">
                         <CardHeader>
