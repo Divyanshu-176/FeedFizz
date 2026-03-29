@@ -11,6 +11,7 @@ import FeedbackList from "@/components/feedback-list";
 
 export default async function FeedbackPage(){
     const {userId} = await auth();
+    
 
     const posts = await prisma.post.findMany({
         include:{
