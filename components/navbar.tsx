@@ -1,9 +1,9 @@
 "use client"
 
-import { Map, MessageSquare, Sparkle } from "lucide-react"
+import { Map, MessageSquare, Shield, Sparkle } from "lucide-react"
 import Link from "next/link"
 import ThemeToggle from "./theme-toggle"
-import { SignInButton, SignOutButton, useAuth, UserButton} from "@clerk/nextjs"
+import { SignInButton, useAuth, UserButton, Show} from "@clerk/nextjs"
 import { Button } from "./ui/button"
 
 
@@ -34,6 +34,16 @@ export default function Navbar(){
                         
                         Feedback
                     </Link>
+
+                    <Show when="signed-in" fallback="">
+                        <Button className="asChild" variant="default">
+                            <Link href="/admin" className="text-sm  transition-colors flex items-center">
+                                <Shield className="h-4 w-4" />
+                                Admin
+                            </Link>
+                        </Button>
+                    </Show>
+
                     <div className="flex item-center gap-4">
                         <ThemeToggle/>
                         {!isSignedIn ? <SignInButton mode="modal"><Button>Sign in</Button></SignInButton> : <UserButton></UserButton>}
